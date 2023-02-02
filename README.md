@@ -3,6 +3,7 @@
 <img src="doc/images/1.png" width="600" height="auto">
 <img src="doc/images/2.png" width="600" height="auto">
 </p>
+
 ## Why
 This project was created for friends of us. <br />
 They wanted to have a QR code on their wedding invitation, where one can accept or reject the invitation.
