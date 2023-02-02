@@ -1,0 +1,29 @@
+<div class="main mt-2">
+  <div class="header-image">
+    <img src="/assets/img/wiesers-v2-round.png" width="200px" height="200px" />
+  </div>
+  <mat-card class="box-card mt-2 ms-2 me-2 mb-2 mat-elevation-z8">
+    <mat-card-header>
+      <div mat-card-avatar class="box-header-image"></div>
+      <mat-card-title>{{ 'HEADER.TITLE' | translate : { value: hosts } }}</mat-card-title>
+      <mat-card-subtitle>{{ 'HEADER.SUBTITLE' | translate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <app-survey *ngIf="!submitted" [(invitation)]="invitation"></app-survey>
+      <app-postsubmit *ngIf="submitted" [invitation]="invitation"></app-postsubmit>
+    </mat-card-content>
+    <mat-card-actions *ngIf="!submitted" align="end" class="mb-2">
+      <button mat-fab color="warn" (click)="clear()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-fab class="ms-1" color="primary" (click)="submit()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="info">
+    <p>
+      <small>{{ 'FOOTER.INVITATION' | translate }} {{ invitation.uuid }}</small>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+{
+    "HEADER": {
+        "TITLE": "{{ value }} Wedding",
+        "SUBTITLE": "Invitation"
+    },
+    "SURVEY": {
+        "GUEST": {
+            "TITLE": "My name is",
+            "LABEL": "First name Surname"
+        },
+        "ACCEPT": {
+            "OPTION": {
+                "YES": "I am happy to celebrate with you!",
+                "NO": "Sorry, I can't come!"
+            }
+        },
+        "PARTICIPANTS": {
+            "TITLE": "With me comes",
+            "LABEL": "Name of another person",
+            "BUTTON": "Add",
+            "TABLE": {
+                "NAME": "Name",
+                "DELETE": "Delete"
+            }
+        },
+        "NEEDTOKNOW": {
+            "TITLE": "Things we need to know",
+            "LABEL": "Allergies, intolerances, other"
+        },
+        "RIDESHARE": {
+            "TITLE": "I'm interested in a ride",
+            "OPTION": {
+                "ROUNDTRIP": "Roundtrip",
+                "TOWARDS": "Towards (2:15pm)",
+                "BACKWARDS": "Backwards (1:15am)",
+                "NO": "No"
+            },
+            "FURTHER": "* Our groomsmen will contact you regarding bus costs."
+        },
+        "MUSICREQUEST": {
+            "TITLE": "With this song you will find me on the dance floor",
+            "LABEL": "Spotify/YouTube URL"
+        }
+    },
+    "FOOTER": {
+        "INVITATION": "Invitation"
+    },
+    "SNACKBAR": {
+        "MISSING": {
+            "NAME": "Please provide your name",
+            "ACCEPT": "Please check your attendance",
+            "UUID": "The invitation UUID is missing",
+            "RIDESHARE": "Please check if rideshare is needed."
+        },
+        "INVITATION": {
+          "SENT": "Invitation has been sent.",
+          "FAILED": "Error while sending."
+        }
+    },
+    "POSTSUBMIT": {
+      "TITLE": "Thank you for the feedback.",
+      "REJECTED": "It's too bad you don't have time.",
+      "ACCEPTED": {
+        "MULTIPLE": "We are looking forward to your coming.",
+        "SINGLE": "We look forward to seeing you there.",
+        "INFORMATION": "From 01.06 you will find the wedding schedule here."
+      },
+      "INFORMATION": "You can come back (refresh page) by 16.04 to change your acceptance/cancellation."
+    }
+}

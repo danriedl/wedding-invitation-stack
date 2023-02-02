@@ -1,0 +1,10 @@
+<mat-card *ngIf="songPreview" class="preview-box mat-elevation-z3">
+  <mat-card-content>
+    <span *ngIf="songPreview.title">{{ songPreview.title }}</span
+    ><br />
+    <span *ngIf="songPreview.description"
+      ><small>{{ songPreview.description }}</small></span
+    ><br />
+    <img *ngIf="songPreview.image" class="preview-image" [src]="songPreview.image" alt="" />
+  </mat-card-content>
+</mat-card>

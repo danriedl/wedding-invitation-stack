@@ -1,0 +1,70 @@
+{
+    "HEADER": {
+        "TITLE": "Hochzeit von {{ value }}",
+        "SUBTITLE": "Einladung"
+    },
+    "SURVEY": {
+        "GUEST": {
+            "TITLE": "Mein Name ist",
+            "LABEL": "Vorname Nachname"
+        },
+        "ACCEPT": {
+            "OPTION": {
+                "YES": "Ich freue mich, mit euch zu feiern!",
+                "NO": "Ich kann leider nicht kommen!"
+            }
+        },
+        "PARTICIPANTS": {
+            "TITLE": "Ich nehme mit",
+            "LABEL": "Name von weiterer Person",
+            "BUTTON": "Hinzufügen",
+            "TABLE": {
+                "NAME": "Name",
+                "DELETE": "Löschen"
+            }
+        },
+        "NEEDTOKNOW": {
+            "TITLE": "Das solltet ihr unbedingt wissen",
+            "LABEL": "Allergien, Unverträglichkeiten, sonstiges"
+        },
+        "RIDESHARE": {
+            "TITLE": "Ich habe Interesse an einer Mitfahrgelegenheit",
+            "OPTION": {
+                "ROUNDTRIP": "Hin- & Rückfahrt",
+                "TOWARDS": "Hinfahrt (14:15)",
+                "BACKWARDS": "Rückfahrt (01:15)",
+                "NO": "Nein"
+            },
+            "FURTHER": "* Unsere Trauzeugen werden sich bezüglich den Buskosten mit euch in Verbindung setzen."
+        },
+        "MUSICREQUEST": {
+            "TITLE": "Bei diesem Lied findet ihr mich auf der Tanzfläche",
+            "LABEL": "Spotify/YouTube Link"
+        }
+    },
+    "FOOTER": {
+        "INVITATION": "Einladung"
+    },
+    "SNACKBAR": {
+        "MISSING": {
+            "NAME": "Bitte den Namen eintragen.",
+            "ACCEPT": "Bitte Zu-/ oder Absagen.",
+            "UUID": "Die Einladungs UUID fehlt.",
+            "RIDESHARE": "Bitte die Mitfahrgelegenheit ausfüllen."
+        },
+        "INVITATION": {
+          "SENT": "Einladung wurde versendet.",
+          "FAILED": "Fehler beim versenden."
+        }
+    },
+    "POSTSUBMIT": {
+      "TITLE": "Danke für die Rückmeldung.",
+      "REJECTED": "Schade, dass du keine Zeit hast.",
+      "ACCEPTED": {
+        "MULTIPLE": "Wir freuen uns auf euer Kommen.",
+        "SINGLE": "Wir freuen uns auf dein Kommen.",
+        "INFORMATION": "Ab dem 01.06 findest du hier den Ablauf des Festes."
+      },
+      "INFORMATION": "Du kannst bis zum 16.04 zurückkommen (Seite aktualisieren), um deine Zu/Absage zu ändern."
+    }
+}

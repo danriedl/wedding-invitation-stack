@@ -1,0 +1,35 @@
+version: '3'
+services:
+  
+  frontend:
+    build:
+      context: ./frontend
+    container_name: "frontend"
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: "backend"
+    depends_on:
+      - redis
+    links:
+      - redis
+    environment:
+      redis_address: "redis:6379"
+      api_address: "0.0.0.0:80"
+      token: A2yXv46z
+
+  redis:
+    container_name: redis
+    command: bash -c "redis-server --appendonly yes"
+    image: redis
+    volumes:
+        - redis-share:/data
+    ports:
+      - "6379:6379"
+volumes:
+  redis-share: {}

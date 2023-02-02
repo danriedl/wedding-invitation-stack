@@ -1,0 +1,129 @@
+<div class="survey">
+  <form>
+    <!-- Guest Name -->
+    <div class="name">
+      <span>{{ 'SURVEY.GUEST.TITLE' | translate }}:</span><br />
+      <mat-form-field class="wide-input">
+        <mat-label>{{ 'SURVEY.GUEST.LABEL' | translate }}</mat-label>
+        <input matInput name="name" type="string" [(ngModel)]="invitation.name" />
+      </mat-form-field>
+    </div>
+
+    <!-- Accept/Reject -->
+    <div class="participate mt-2">
+      <mat-divider class="mb-2"></mat-divider>
+      <mat-radio-group
+        color="primary"
+        class="wide-input"
+        [(ngModel)]="invitation.accepted"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <div *ngFor="let acceptOption of acceptOptions">
+          <mat-radio-button class="mt-1" [value]="acceptOption.value"></mat-radio-button>
+          <span>{{ acceptOption.description | translate }}</span>
+        </div>
+      </mat-radio-group>
+    </div>
+
+    <div class="further-survey" *ngIf="invitation.accepted === true">
+      <!-- Participants -->
+      <div class="participants mt-2">
+        <mat-divider class="mb-2"></mat-divider>
+        <span>{{ 'SURVEY.PARTICIPANTS.TITLE' | translate }}:</span><br />
+        <div class="text-and-button">
+          <mat-form-field>
+            <mat-label>{{ 'SURVEY.PARTICIPANTS.LABEL' | translate }}</mat-label>
+            <input matInput type="string" class="participant-name" #participantName />
+          </mat-form-field>
+
+          <button
+            type="button"
+            (click)="add(participantName.value); participantName.value = ''"
+            mat-button
+            color="primary"
+          >
+            <mat-icon>add</mat-icon> {{ 'SURVEY.PARTICIPANTS.BUTTON' | translate }}
+          </button>
+        </div>
+        <div class="participant-table" *ngIf="invitation.further_guests.length > 0">
+          <table
+            #particpantTable
+            mat-table
+            class="participant-table wide-input"
+            [dataSource]="invitation.further_guests"
+          >
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>{{ 'SURVEY.PARTICIPANTS.TABLE.NAME' | translate }}</th>
+              <td mat-cell *matCellDef="let participant">{{ participant }}</td>
+            </ng-container>
+
+            <!-- Delete Column -->
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef>{{ 'SURVEY.PARTICIPANTS.TABLE.DELETE' | translate }}</th>
+              <td mat-cell *matCellDef="let participant">
+                <button mat-icon-button color="warn" (click)="delete(participant)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Need to know -->
+      <div class="need-to-know">
+        <mat-divider class="mb-2"></mat-divider>
+        <span>{{ 'SURVEY.NEEDTOKNOW.TITLE' | translate }}</span
+        ><br />
+        <mat-form-field class="wide-input">
+          <mat-label>{{ 'SURVEY.NEEDTOKNOW.LABEL' | translate }}</mat-label>
+          <textarea name="needtoknow" [(ngModel)]="invitation.need_to_know" matInput></textarea>
+        </mat-form-field>
+      </div>
+
+      <!-- Ride -->
+      <div class="ride">
+        <mat-divider class="mb-2"></mat-divider>
+        <span class="mb-2">{{ 'SURVEY.RIDESHARE.TITLE' | translate }}</span>
+        <mat-radio-group
+          class="mb-2"
+          color="primary"
+          [(ngModel)]="invitation.rideshare"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <div *ngFor="let rideOption of rideOptions">
+            <mat-radio-button class="mt-1 mb-1" [value]="rideOption.id"></mat-radio-button>
+            <span>{{ rideOption.description | translate }}</span>
+          </div>
+        </mat-radio-group>
+        <span
+          ><small>{{ 'SURVEY.RIDESHARE.FURTHER' | translate }}</small></span
+        >
+      </div>
+
+      <!-- Music Request -->
+      <div class="music-request mt-2">
+        <mat-divider class="mb-2"></mat-divider>
+        <span>{{ 'SURVEY.MUSICREQUEST.TITLE' | translate }}</span
+        ><br />
+        <mat-form-field class="wide-input">
+          <mat-label>{{ 'SURVEY.MUSICREQUEST.LABEL' | translate }}</mat-label>
+          <input
+            name="favourite_song"
+            [(ngModel)]="invitation.favourite_song"
+            id="songUrl"
+            matInput
+            type="string"
+            #songUrl
+          />
+        </mat-form-field>
+        <div class="url-preview" *ngIf="invitation.favourite_song">
+          <app-preview [invitation]="invitation"></app-preview>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

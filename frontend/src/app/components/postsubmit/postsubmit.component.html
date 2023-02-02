@@ -1,0 +1,17 @@
+<div class="postsubmit">
+  <div class="title">
+    <b>{{ 'POSTSUBMIT.TITLE' | translate }}</b>
+  </div>
+  <div *ngIf="!invitation.accepted" class="rejected mb-2">
+    <span>{{ 'POSTSUBMIT.REJECTED' | translate }}</span>
+  </div>
+  <div *ngIf="invitation.accepted" class="accepted mb-2">
+    <span *ngIf="invitation.further_guests.length > 0">{{ 'POSTSUBMIT.ACCEPTED.MULTIPLE' | translate }}</span>
+    <span *ngIf="invitation.further_guests.length === 0">{{ 'POSTSUBMIT.ACCEPTED.SINGLE' | translate }}</span>
+    <br /><span>{{ 'POSTSUBMIT.ACCEPTED.INFORMATION' | translate }}</span>
+  </div>
+
+  <div class="info">
+    <p>{{ 'POSTSUBMIT.INFORMATION' | translate }}</p>
+  </div>
+</div>
