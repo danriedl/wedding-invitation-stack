@@ -47,6 +47,7 @@
   },
   "SNACKBAR": {
     "MISSING": {
+      "ADD": "Please add further guests.",
       "NAME": "Please provide your name",
       "ACCEPT": "Please check your attendance",
       "UUID": "The invitation UUID is missing",

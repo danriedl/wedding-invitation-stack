@@ -20,7 +20,6 @@ export class AppComponent {
 
   invitation: Invitation = { further_guests: [] };
   submitted: boolean = false;
-
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, { duration: 5000 });
   }
@@ -47,6 +46,12 @@ export class AppComponent {
     this.invitation.uuid = token;
   }
   checkInvitation(): boolean {
+    if (this.invitation.further_guest) {
+      if (this.invitation.further_guest.length) {
+        this.openSnackBar(this.translate.instant('SNACKBAR.MISSING.ADD'), '');
+        return false;
+      }
+    }
     if (!this.invitation.name) {
       this.openSnackBar(this.translate.instant('SNACKBAR.MISSING.NAME'), '');
       return false;
