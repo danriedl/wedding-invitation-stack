@@ -47,6 +47,7 @@
   },
   "SNACKBAR": {
     "MISSING": {
+      "ADD": "Weitere Teilnehmer müssen hinzugefügt werden.",
       "NAME": "Bitte den Namen eintragen.",
       "ACCEPT": "Bitte Zu-/ oder Absagen.",
       "UUID": "Die Einladungs UUID fehlt.",
