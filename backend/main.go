@@ -16,7 +16,7 @@ import (
 var ctx = context.Background()
 
 var rdb = redis.NewClient(&redis.Options{
-	Addr:     getRedisAddressFromEnv(),
+	Addr:     getVariableFromEnvWithDefaultValue("redis_address", "localhost:6379"),
 	Password: "", // no password set
 	DB:       0,  // use default DB
 })
@@ -31,10 +31,10 @@ type invitation struct {
 	Uuid          string   `json:"uuid" csv:"uuid"`
 }
 
-func getRedisAddressFromEnv() string {
-	value, exists := os.LookupEnv("redis_address")
+func getVariableFromEnvWithDefaultValue(variable, defaultValue string) string {
+	value, exists := os.LookupEnv(variable)
 	if !exists {
-		value = "localhost:6379"
+		value = defaultValue
 	}
 	return value
 }
@@ -137,10 +137,9 @@ func getSongPreview(c *gin.Context) {
 
 func main() {
 	r := gin.Default()
-
 	r.GET("/api/invitation/:uuid", getInvitation)
 	r.POST("/api/invitation/:uuid", setInvitation)
 	r.GET("/api/invitation/all", getAllInvitations)
 	r.GET("/api/song/preview", getSongPreview)
-	r.Run(getApiAddressFromEnv())
+	r.Run(getVariableFromEnvWithDefaultValue("api_address", "localhost:8080"))
 }
