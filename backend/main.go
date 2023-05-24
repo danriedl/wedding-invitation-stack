@@ -21,7 +21,7 @@ var rdb = redis.NewClient(&redis.Options{
 	DB:       0,  // use default DB
 })
 
-type invitation struct {
+type Invitation struct {
 	Name          string   `json:"name" csv:"name"`
 	FurtherGuests []string `json:"further_guests" csv:"further_guests"`
 	FavouriteSong string   `json:"favourite_song" csv:"favourite_song"`
@@ -58,12 +58,12 @@ func getAllInvitations(c *gin.Context) {
 		return
 	}
 
-	var invitations []invitation
+	var invitations []Invitation
 
 	iter := rdb.Scan(ctx, 0, "*", 0).Iterator()
 	for iter.Next(ctx) {
 		key := iter.Val()
-		invitation := invitation{}
+		invitation := Invitation{}
 		s, err := rdb.Get(ctx, key).Result()
 		if err != nil {
 			continue
@@ -107,7 +107,7 @@ func getInvitation(c *gin.Context) {
 }
 
 func setInvitation(c *gin.Context) {
-	var invitation invitation
+	var invitation Invitation
 	c.BindJSON(&invitation)
 	j, err := json.Marshal(invitation)
 	if err != nil {
